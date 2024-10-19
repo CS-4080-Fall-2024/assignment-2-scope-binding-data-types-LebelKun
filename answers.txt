@@ -1,0 +1,74 @@
+question 1.
+
+leftmost derivation: 
+1. Start with Statement:
+Statement -> Assignment 
+
+2. Expand Assignment:
+Assignment -> Identifier = Expression 
+A = Expression 
+
+3. Expand Expression: 
+A = Term * Factor 
+
+4. Expand Term on the right side 
+A = B * Factor 
+
+5. Expand Factor: 
+A = B * (Expression)
+
+6. Expand Expression inside parentheses 
+A = B * (Term * Factor)
+
+7.Expand Term in parentheses 
+A = B * (C * Factor)
+
+8. Expand Facttor in parantheses 
+A = B * (C * (Expression))
+
+9. Expand Expression inside paranthesis 
+A = B * (C * (Expression + Term))
+
+10. Expand Expression inside paranthesis 
+A = B * (C * (A + Term))
+
+11. Expand Term 
+A = B * (C * (A + B))
+
+Parse Tree: 
+
+         Statement
+              |
+          Assignment
+       __________|__________
+      |                     |
+  Identifier             Expression
+      |                        |
+      A                     Term * Factor
+                            |         |
+                            Term * Factor
+                           |     |    |
+                      Factor  *  (Expression)
+                         |           |
+                         B         Term * Factor
+                                   |         |
+                                Factor  * (Expression)
+                                 |                 |
+                                 C    Expression + Term
+                                      |             |
+                                      Identifier  Term
+                                         |          |
+                                         A          B
+
+
+
+question 2
+a. The answer would be 180 because, u variable is accessed based on its location in the code. The final print does output the value of u 
+which is calculated to be 180. 
+
+b. The answer would also be 180 because when foo is called it creates a local v which is set to 42 but the add function accesses the global value
+which is 69. which means u = 69 + 42 + 69 which makes it 180 
+
+c. The answer is 42 because when foo is called it sets w to 13. it defines u locally which is 17. which eventually leads to the output of the initial global u which is 42 
+
+
