@@ -69,6 +69,6 @@ which is calculated to be 180.
 b. The answer would also be 180 because when foo is called it creates a local v which is set to 42 but the add function accesses the global value
 which is 69. which means u = 69 + 42 + 69 which makes it 180 
 
-c. The answer is 42 because when foo is called it sets w to 13. it defines u locally which is 17. which eventually leads to the output of the initial global u which is 42 
-
+c. The answer would be 101 because foo(42, 13) is called: Inside foo, v := 42 (local v), shadowing the global v. Then bar(add) is called. Then it creates u= 17. 
+Then add(42). u := 42 (local v from foo) + 17 (local u from bar) + 42 (z) = 101
 
